@@ -1,24 +1,25 @@
 "use strict";
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     // better hover for mobile devices
     if (Modernizr.touch) {
         // run the forEach on each figure element
-        [].slice.call(document.querySelectorAll('a, button')).forEach(function(el, i) {
+        [].slice.call(document.querySelectorAll('a, button')).forEach(function (el, i) {
             // check if the user moves a finger
             var fingerMove = false;
-            el.addEventListener('touchmove', function(e) {
+            el.addEventListener('touchmove', function (e) {
                 e.stopPropagation();
                 fingerMove = true;
             });
             // always reset fingerMove to false on touch start
-            el.addEventListener('touchstart', function(e) {
+            el.addEventListener('touchstart', function (e) {
                 e.stopPropagation();
                 fingerMove = false;
             });
         });
-    };
+    }
+    ;
 
     var animationDuration = 1200; // set animation durations (for circles and bars) in milliseconds
     var portfolioGrid = '#portfolio-masonry-grid'; // portfolio masonry grid selector
@@ -37,7 +38,7 @@ $(document).ready(function() {
             fill: {
                 color: themecolor
             }
-        }).on('circle-animation-progress', function(event, progress) {
+        }).on('circle-animation-progress', function (event, progress) {
             $(this).find('strong').html(parseInt(getPercent * progress) + '<i>%</i>');
         });
     };
@@ -56,11 +57,11 @@ $(document).ready(function() {
             percent: getPercent * 100
         }, {
             duration: animationDuration,
-            progress: function(now, fx) {
+            progress: function (now, fx) {
 
                 $(elemPure + ' .skillbar-exp').html(parseInt(this.percent) + '<i>%</i>');
             },
-            complete: function() {
+            complete: function () {
                 //do not forget to reset percent at the end of the animaton
                 //so on the next animation it can be calculated from starting value of 0 again
                 this.percent = 0;
@@ -68,28 +69,28 @@ $(document).ready(function() {
         });
     };
 
-    function onScrollInit( items, trigger ) {
-      items.each( function() {
-        var osElement = $(this),
-            osAnimationClass = osElement.attr('data-os-animation'),
-            osAnimationDelay = osElement.attr('data-os-animation-delay');
-     
-        osElement.css({
-            '-webkit-animation-delay':  osAnimationDelay,
-            '-moz-animation-delay':     osAnimationDelay,
-            'animation-delay':          osAnimationDelay
+    function onScrollInit(items, trigger) {
+        items.each(function () {
+            var osElement = $(this),
+                osAnimationClass = osElement.attr('data-os-animation'),
+                osAnimationDelay = osElement.attr('data-os-animation-delay');
+
+            osElement.css({
+                '-webkit-animation-delay': osAnimationDelay,
+                '-moz-animation-delay': osAnimationDelay,
+                'animation-delay': osAnimationDelay
+            });
+
+            var osTrigger = (trigger) ? trigger : osElement;
+
+            osTrigger.waypoint(function () {
+                osElement.addClass('animated').addClass(osAnimationClass);
+            }, {
+                triggerOnce: true,
+                offset: '90%'
+            });
         });
-     
-        var osTrigger = ( trigger ) ? trigger : osElement;
-     
-        osTrigger.waypoint(function() {
-            osElement.addClass('animated').addClass(osAnimationClass);
-        },{
-            triggerOnce: true,
-            offset: '90%'
-        });
-      });
-    }    
+    }
 
     // scroll to top plugin init
     scrollToTop({
@@ -103,27 +104,27 @@ $(document).ready(function() {
     });
 
     // responsive off-canvas menu handling
-    $('#menu-toggle').on('touchstart click', function(e) {
+    $('#menu-toggle').on('touchstart click', function (e) {
         $('#page-wrapper').toggleClass('toggled');
         $('#sstt').removeClass('is-visible').addClass('is-hidden');
         return false;
     });
 
     // close the menu when link or page overlay is clicked
-    $('.top-menu li:not(.has-child-menu) > a, #page-content-overlay').on('click', function(e) {
+    $('.top-menu li:not(.has-child-menu) > a, #page-content-overlay').on('click', function (e) {
         //e.preventDefault();
         $('#page-wrapper').removeClass('toggled');
     });
 
     // handle child menus
-    $('.top-menu li.has-child-menu .menu-next-btn').on('click', function(e) {
+    $('.top-menu li.has-child-menu .menu-next-btn').on('click', function (e) {
         e.preventDefault();
         $(this).parent().toggleClass('menu-expanded');
         $(this).css('display', 'none');
         $(this).parent().find('.menu-prev-btn').css('display', 'inline-block');
         return false;
     });
-    $('.top-menu li.has-child-menu .menu-prev-btn').on('click', function(e) {
+    $('.top-menu li.has-child-menu .menu-prev-btn').on('click', function (e) {
         e.preventDefault();
         $(this).parent().toggleClass('menu-expanded');
         $(this).css('display', 'none');
@@ -132,7 +133,7 @@ $(document).ready(function() {
     });
 
     // init masonry & magnific popup only when all images are loaded (or confirmed broken)
-    $(portfolioGrid).imagesLoaded().always(function(instance) {
+    $(portfolioGrid).imagesLoaded().always(function (instance) {
         $(portfolioGrid).masonry({ // masonry init
             columnWidth: '.portfolio-grid-sizer',
             itemSelector: '.portfolio-item',
@@ -152,7 +153,7 @@ $(document).ready(function() {
             image: {
                 cursor: null,
                 tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-                titleSrc: function(item) {
+                titleSrc: function (item) {
                     return item.el.attr('title') + '<small>by Stelan Briyan Simonsz</small>';
                 }
             }
@@ -160,16 +161,16 @@ $(document).ready(function() {
     });
 
     // blog grid masonry init
-    $(blogGrid).imagesLoaded().always(function(instance) {
+    $(blogGrid).imagesLoaded().always(function (instance) {
         $(blogGrid).masonry({ // masonry init
             columnWidth: '.blog-grid-sizer',
             itemSelector: '.blog-post-preview',
             percentPosition: false,
-        })        
+        })
     });
 
     // waypoints triggering for bars
-    $('.block-skillbars').waypoint(function() {
+    $('.block-skillbars').waypoint(function () {
         moveProgressBar('#skillbar1');
         moveProgressBar('#skillbar2');
         this.destroy();
@@ -179,7 +180,7 @@ $(document).ready(function() {
     });
 
     // waypoints triggering for circle bars
-    $('.block-circles-skills').waypoint(function() {
+    $('.block-circles-skills').waypoint(function () {
         circleInit('#circle1');
         circleInit('#circle2');
         circleInit('#circle3');
@@ -190,37 +191,37 @@ $(document).ready(function() {
     });
 
     // progress button init
-    [].slice.call(document.querySelectorAll('button.progress-button')).forEach(function(bttn) {
+    [].slice.call(document.querySelectorAll('button.progress-button')).forEach(function (bttn) {
         new ProgressButton(bttn, {
-            callback: function(instance) {
+            callback: function (instance) {
                 var progress = 0,
-                interval = setInterval(function() {
-                    progress = Math.min(progress + Math.random() * 0.25, 1);
-                    instance._setProgress(progress);
+                    interval = setInterval(function () {
+                        progress = Math.min(progress + Math.random() * 0.25, 1);
+                        instance._setProgress(progress);
 
-                    if (progress === 1) {
-                        instance._stop(1);
-                        clearInterval(interval);
-                    }
-                }, 200);
+                        if (progress === 1) {
+                            instance._stop(1);
+                            clearInterval(interval);
+                        }
+                    }, 200);
             }
         });
     });
 
     // contact form. Documentation: http://api.jquery.com/jquery.ajax/
-    $('#contact-form-btn').on('click', function(e) {
+    $('#contact-form-btn').on('click', function (e) {
         $.ajax({
             type: 'POST',
             url: 'mail.php',
             data: $('#contact-form').serialize()
-        }).done(function() {
-            setTimeout(function() {
+        }).done(function () {
+            setTimeout(function () {
                 $('#contact-form-btn').removeClass('state-loading').addClass('state-success');
                 $('#contact-form').trigger('reset');
                 alert('Thanks for your message! I will reply you as soon as possible.');
             }, 1500);
-        }).fail(function() {
-            setTimeout(function() {
+        }).fail(function () {
+            setTimeout(function () {
                 $('#contact-form-btn').addClass('state-error').removeClass('state-success');
                 alert('Something went wrong :( Please contact me directly to my email.');
             }, 1500);
@@ -229,13 +230,14 @@ $(document).ready(function() {
 
     // video bg init
     $('#bgndVideo').YTPlayer({
-        videoURL: '',
+        videoURL: 'https://youtu.be/J3Bz2C5ARBA',
         containment: '#section-intro',
         autoPlay: true,
         mute: true,
         startAt: 0,
         opacity: 1,
-        showControls: false
+        showControls: false,
+        quality: 'highres'
     });
 
     // on scroll animations
