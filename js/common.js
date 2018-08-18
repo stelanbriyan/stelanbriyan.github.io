@@ -153,7 +153,7 @@ $(document).ready(function() {
                 cursor: null,
                 tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
                 titleSrc: function(item) {
-                    return item.el.attr('title') + '<small>by John Smith</small>';
+                    return item.el.attr('title') + '<small>by Stelan Briyan Simonsz</small>';
                 }
             }
         });
