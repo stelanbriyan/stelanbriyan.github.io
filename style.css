@@ -2169,6 +2169,11 @@ ul.blog-pagination .active a {
     padding: 5px;
     font-size: 12px;
 }
+.blog-tag-green a {
+    background: #21b35e !important;
+    padding: 5px;
+    font-size: 12px;
+}
 
 .blog-tags-list li a{
     padding: 5px;
