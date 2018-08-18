@@ -2155,3 +2155,26 @@ ul.blog-pagination .active a {
     padding: 10px;
     border-bottom: 2px green solid;
 }
+
+.project-box {
+    margin-top: 50px;
+}
+
+.project-box h3 {
+    margin: 0px !important;
+}
+
+.blog-tag-yellow a {
+    background: #FFB03A !important;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.blog-tags-list li a{
+    padding: 5px;
+    font-size: 12px;
+}
+
+.project-para{
+    text-align: justify;
+}
