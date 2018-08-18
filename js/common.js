@@ -229,7 +229,7 @@ $(document).ready(function() {
 
     // video bg init
     $('#bgndVideo').YTPlayer({
-        videoURL: 'https://youtu.be/Jc1kG1THauc',
+        videoURL: 'https://www.youtube.com/watch?v=KgMVSldVlTE',
         containment: '#section-intro',
         autoPlay: true,
         mute: true,
