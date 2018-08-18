@@ -229,7 +229,7 @@ $(document).ready(function() {
 
     // video bg init
     $('#bgndVideo').YTPlayer({
-        videoURL: 'https://www.youtube.com/watch?v=KgMVSldVlTE',
+        videoURL: '',
         containment: '#section-intro',
         autoPlay: true,
         mute: true,
@@ -241,3 +241,4 @@ $(document).ready(function() {
     // on scroll animations
     onScrollInit($('.os-animation'));
 });
+// https://youtu.be/J3Bz2C5ARBA
