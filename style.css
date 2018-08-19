@@ -1530,6 +1530,10 @@ ul.blog-pagination .active a {
     background: url(img/education/education3.png);
 }
 
+.block-timeline .company-edu4 {
+    background: url(img/education/education4.jpg);
+}
+
 .block-timeline .timeline {
     margin-top: 40px;
 }
