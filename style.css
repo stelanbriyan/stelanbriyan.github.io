@@ -2183,3 +2183,21 @@ ul.blog-pagination .active a {
 .project-para{
     text-align: justify;
 }
+
+.act-img{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid gainsboro;
+}
+
+.activity-box{
+    margin-top: 40px;
+}
+.activity-box h4{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.skills-ul{
+    list-style-type: disc;
+}
