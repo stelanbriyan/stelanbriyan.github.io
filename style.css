@@ -2160,6 +2160,10 @@ ul.blog-pagination .active a {
     border-bottom: 2px green solid;
 }
 
+.skill-img-nt {
+    border-bottom: 2px orange solid !important;
+}
+
 .project-box {
     margin-top: 50px;
 }
@@ -2173,35 +2177,37 @@ ul.blog-pagination .active a {
     padding: 5px;
     font-size: 12px;
 }
+
 .blog-tag-green a {
     background: #21b35e !important;
     padding: 5px;
     font-size: 12px;
 }
 
-.blog-tags-list li a{
+.blog-tags-list li a {
     padding: 5px;
     font-size: 12px;
 }
 
-.project-para{
+.project-para {
     text-align: justify;
 }
 
-.act-img{
+.act-img {
     margin-bottom: 10px;
     margin-top: 10px;
     border: 1px solid gainsboro;
 }
 
-.activity-box{
+.activity-box {
     margin-top: 40px;
 }
-.activity-box h4{
+
+.activity-box h4 {
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.skills-ul{
+.skills-ul {
     list-style-type: disc;
 }
