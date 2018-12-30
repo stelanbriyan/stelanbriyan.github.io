@@ -1506,6 +1506,10 @@ ul.blog-pagination .active a {
     border-color: transparent;
 }
 
+.block-timeline .company4 {
+    background: url(img/companies/objectone.png);
+}
+
 .block-timeline .company1 {
     background: url(img/companies/company1.png);
 }
